@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tax Invoice</title>
+  <link rel="stylesheet" href="asset/style.css" />
+</head>
+<body>
+    <body>
+       
+        <div class="main-container">
+            <div class="header">
+              <div class="logo-upload-section">
+                <label for="logo-upload" class="upload-label">
+                  <div class="upload-box">
+                    <div class="upload-icon">⬆</div>
+                    <div class="upload-text">Upload</div>
+                  </div>
+                </label>
+                <input type="file" id="logo-upload" class="upload-input" />
+                <div class="upload-info"> <h3> Upload Logo</h3>240 x 240 pixels @ 72 DPI,<br>Maximum size of 1MB.</div>
+              </div>
+              <h1 class="invoice-title">TAX INVOICE</h1>
+            </div>
+        
+      
+          <div class="company-details">
+           
+            <input type="text" placeholder="Your Company " />
+            <input type="text" placeholder="Your Name" />
+            <input type="text" placeholder="Company's GSTIN" />
+          
+            <input type="text" placeholder="Company's Address" />
+            <input type="text" placeholder="City" />
+             <input type="text" placeholder="State" />
+             <input type="country" placeholder="State" />
+          </div>
+      
+        
+          <div class="bill-section">
+            <div class="bill-left">
+              <input type="text" placeholder="Bill To:" />
+              <input type="text" placeholder="Client's Company" id="clientCompany" />
+              <input type="text" placeholder="Client's GSTIN" id="clientGSTIN" />
+              <input type="text" placeholder="Client's Address" id="clientAddress" />
+              <input type="text" placeholder="City" id="clientCity" />
+              <input type="text" placeholder="State" id="clientState" />
+              <input type="text" placeholder="India" disabled />
+              <p><strong>Place Of Supply:</strong> <span id="placeOfSupply" class="light-text">State</span></p>
+            </div>
+      
+            <div class="bill-right">
+              <div class="invoice-line">
+                <span><strong>Invoice#</strong></span>
+                <span id="invoiceNumber">INV-001</span>
+              </div>
+              <div class="invoice-line">
+                <span><strong>Invoice Date</strong></span>
+                <input type="date" id="invoiceDate" />
+              </div>
+              <div class="invoice-line">
+                <span><strong>Due Date</strong></span>
+                <input type="date" id="dueDate" />
+              </div>
+            </div>
+          </div>
+        </div>
+      
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
