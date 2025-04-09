@@ -26,42 +26,100 @@
         
       
           <div class="company-details">
+           <form>
+            <table>
+               <tr>
+                <td> <input type="text" placeholder="Your Company " />  </td>
+               </tr>
+               <tr>
+                <td> <input type="text" placeholder="Your Name " /> </td>
+               </tr>
+               <tr>
+                <td> <input type="text" placeholder="Company's GSTIN" /> </td>
+               </tr>
+               <tr>
+                <td> <input type="text" placeholder="Company's Address" />  </td>
+               </tr>
+               <tr>
+                <td> <input type="text" placeholder="City" />  </td>
+               </tr>
+               <tr>
+                <td> <input type="text" placeholder="state" />  </td>
+               </tr>
+               <tr>
+               <td> <input type="text" placeholder="country" /> </td>
+               </tr>
+
+
+            </table>
+
+
+
+           </form>
            
-            <input type="text" placeholder="Your Company " />
-            <input type="text" placeholder="Your Name" />
-            <input type="text" placeholder="Company's GSTIN" />
           
-            <input type="text" placeholder="Company's Address" />
-            <input type="text" placeholder="City" />
-             <input type="text" placeholder="State" />
-             <input type="country" placeholder="State" />
+          
+           
           </div>
       
         
           <div class="bill-section">
             <div class="bill-left">
-              <input type="text" placeholder="Bill To:" />
-              <input type="text" placeholder="Client's Company" id="clientCompany" />
-              <input type="text" placeholder="Client's GSTIN" id="clientGSTIN" />
-              <input type="text" placeholder="Client's Address" id="clientAddress" />
-              <input type="text" placeholder="City" id="clientCity" />
-              <input type="text" placeholder="State" id="clientState" />
-              <input type="text" placeholder="India" disabled />
-              <p><strong>Place Of Supply:</strong> <span id="placeOfSupply" class="light-text">State</span></p>
+              <form>
+                 <table>
+                   <tr>
+                   <td> <input type="text" id="billInput" value="Bill No: " oninput="fixPrefix(this)">  </td>
+                   </tr>
+                   <tr>
+                    <td> <input type="text" placeholder="Client's Company" id="clientCompany" /> </td>
+                   </tr>
+                   <tr>
+                    <td>  <input type="text" placeholder="Client's GSTIN" id="clientGSTIN" /> </td>
+                   </tr>
+                   <tr>
+                    <td>  <input type="text" placeholder="Client's Address" id="clientAddress" /> </td>
+                   </tr>
+                   <tr>
+                    <td> <input type="text" placeholder="Client's City" id="clientCity" /> </td>
+                   </tr>
+                   <tr>
+                    <td> <input type="text" placeholder="Client's state" id="clientState" /> </td>
+                   </tr>
+                   <tr>
+                    <td> <input type="text" placeholder="Client's Country" id="clientCountry" /> </td>
+                   </tr>
+                   <tr>
+                    <td> <input type="text" placeholder="Place Of Supply" id="place Of Supply" /> </td>
+                   </tr>
+
+
+
+
+
+                 </table>
+
+              </form>
+             
             </div>
       
             <div class="bill-right">
               <div class="invoice-line">
-                <span><strong>Invoice#</strong></span>
-                <span id="invoiceNumber">INV-001</span>
-              </div>
-              <div class="invoice-line">
-                <span><strong>Invoice Date</strong></span>
-                <input type="date" id="invoiceDate" />
-              </div>
-              <div class="invoice-line">
-                <span><strong>Due Date</strong></span>
-                <input type="date" id="dueDate" />
+               <form>
+                <table>
+                  <tr>
+                    <td> <input type="text" placeholder="Invoice#" id="Invoice#" /> </td> <td> <input type="text" placeholder="INV-12" id="INV-12" />  </td>
+                  </tr>
+                  <tr>
+                    <td> <input type="text" placeholder="Invoice Date" id="Invoice Date " /> </td> <td> <input type="date" placeholder="date" id="date" />  </td>
+                  </tr>
+                  <tr>
+                    <td> <input type="text" placeholder="Due Date" id="Due Date " /> </td> <td> <input type="date" placeholder="date" id="date" />  </td>
+                  </tr>
+                 
+
+
+                </table>
+               </form>
               </div>
             </div>
           </div>

@@ -45,4 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const randomNum = Math.floor(100 + Math.random() * 900);
     invoiceNumber.textContent = `INV-${randomNum}`;
+
+    
   });
