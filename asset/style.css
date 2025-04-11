@@ -87,10 +87,12 @@ body {
 
   .company-details label {
     font-size: 14px;
+    
+    
   }
 
   .company-details input {
-    padding: 10px;
+    padding: 10px 90px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -112,7 +114,7 @@ body {
 
   .bill-left input {
     width: 100%;
-    padding: 8px;
+    padding: 8px 60px;
     margin-bottom: 6px;
     font-size: 14px;
     border: 1px solid #ccc;
@@ -136,3 +138,61 @@ body {
   .light-text {
     color: #888;
   }
+  
+  .invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+
+  .invoice-table th, .invoice-table td {
+    border: black;
+    padding: 10px;
+    vertical-align: top;
+  }
+
+  .invoice-table th {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .invoice-table td {
+    text-align: center;
+  }
+
+  .invoice-table td.description {
+    text-align: left;
+  }
+
+  textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-family: inherit;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+  input[type="number"] {
+    width: 70px;
+    padding: 4px;
+    text-align: center;
+  }
+
+  .subtext {
+    font-size: 12px;
+    color: #555;
+    padding-top: 5px;
+  }
+
+  tr:not(:first-child) {
+    border-top: 1px solid #ccc;
+  }
+
+
+
+
+
+  

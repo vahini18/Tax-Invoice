@@ -10,6 +10,7 @@
     <body>
        
         <div class="main-container">
+
             <div class="header">
               <div class="logo-upload-section">
                 <label for="logo-upload" class="upload-label">
@@ -49,17 +50,8 @@
                <tr>
                <td> <input type="text" placeholder="country" /> </td>
                </tr>
-
-
             </table>
-
-
-
            </form>
-           
-          
-          
-           
           </div>
       
         
@@ -91,42 +83,115 @@
                    <tr>
                     <td> <input type="text" placeholder="Place Of Supply" id="place Of Supply" /> </td>
                    </tr>
-
-
-
-
-
-                 </table>
-
+                  </table>
               </form>
-             
             </div>
+           
       
             <div class="bill-right">
               <div class="invoice-line">
                <form>
                 <table>
                   <tr>
-                    <td> <input type="text" placeholder="Invoice#" id="Invoice#" /> </td> <td> <input type="text" placeholder="INV-12" id="INV-12" />  </td>
+                    <td> <input type="text" id="Invoice#" value="Invoice# " oninput="fixPrefix(this)"><td> <input type="text" placeholder="INV-12" id="INV-12" />  </td>
                   </tr>
                   <tr>
-                    <td> <input type="text" placeholder="Invoice Date" id="Invoice Date " /> </td> <td> <input type="date" placeholder="date" id="date" />  </td>
+                    <td> <input type="text" id="Date" value="Invoice Date " oninput="fixPrefix(this)"> <td> <input type="date" placeholder="date" id="date" />  </td> 
                   </tr>
                   <tr>
-                    <td> <input type="text" placeholder="Due Date" id="Due Date " /> </td> <td> <input type="date" placeholder="date" id="date" />  </td>
+                    <td> <input type="text" id="Due Date" value="Due Date " oninput="fixPrefix(this)"> <td> <input type="date" placeholder="date" id="date" />  </td>
                   </tr>
-                 
-
-
                 </table>
                </form>
               </div>
             </div>
-          </div>
-        </div>
-      
-  
+          </div> 
+    
+          <table class="invoice-table">
+            <tr>
+              <th>Item Description</th>
+              <th>Qty</th>
+              <th>Rate</th>
+              <th>SGST</th>
+              <th>CGST</th>
+              <th>Cess</th>
+              <th>Amount</th>
+            </tr>
+           
+            <tr>
+              <td class="description">
+                <textarea>Brochure Design</textarea>
+                <input type="text" placeholder="HSN/SAC" id="HSN/SAC" />
+              </td>
+              <td><input type="number" value="2" min="0"></td>
+              <td><input type="number" value="100.00" step="0.01" min="0"></td>
+              <td>
+                <input type="number" value="6" min="0"><br />
+                <div class="subtext">12.00</div>
+              </td>
+              <td>
+                <input type="number" value="6" min="0"><br />
+                <div class="subtext">12.00</div>
+              </td>
+              <td>
+                <input type="number" value="0" min="0"><br />
+                <div class="subtext">0.00</div>
+              </td>
+              <td><input type="number" value="200.00" step="0.01" min="0"></td>
+            </tr>
+          
+            <tr>
+              <td class="description">
+                <textarea>Enter item name/description</textarea>
+                <input type="text" placeholder="HSN/SAC" id="HSN/SAC" />
+              </td>
+              <td><input type="number" value="1" min="0"></td>
+              <td><input type="number" value="0.00" step="0.01" min="0"></td>
+              <td>
+                <input type="number" value="0" min="0"><br />
+                <div class="subtext">0.00</div>
+              </td>
+              <td>
+                <input type="number" value="0" min="0"><br />
+                <div class="subtext">0.00</div>
+              </td>
+              <td>
+                <input type="number" value="0" min="0"><br />
+                <div class="subtext">0.00</div>
+              </td>
+              <td><input type="number" value="0.00" step="0.01" min="0"></td>
+            </tr>
+          
+            <tr>
+              <td class="description">
+                <textarea>Enter item name/description</textarea>
+                <input type="text" placeholder="HSN/SAC" id="HSN/SAC" />
+              </td>
+              <td><input type="number" value="1" min="0"></td>
+              <td><input type="number" value="0.00" step="0.01" min="0"></td>
+              <td>
+                <input type="number" value="0" min="0"><br />
+                <div class="subtext">0.00</div>
+              </td>
+              <td>
+                <input type="number" value="0" min="0"><br />
+                <div class="subtext">0.00</div>
+              </td>
+              <td>
+                <input type="number" value="0" min="0"><br />
+                <div class="subtext">0.00</div>
+              </td>
+              <td><input type="number" value="0.00" step="0.01" min="0"></td>
+            </tr>
 
-  <script src="script.js"></script>
+          </table>
+
+
+
+
+              
+          
+        </div>
+        <script src="script.js"></script>
 </body>
 </html>
