@@ -11,19 +11,25 @@
        
         <div class="main-container">
 
-            <div class="header">
-              <div class="logo-upload-section">
-                <label for="logo-upload" class="upload-label">
-                  <div class="upload-box">
-                    <div class="upload-icon">⬆</div>
-                    <div class="upload-text">Upload</div>
-                  </div>
-                </label>
-                <input type="file" id="logo-upload" class="upload-input" />
-                <div class="upload-info"> <h3> Upload Logo</h3>240 x 240 pixels @ 72 DPI,<br>Maximum size of 1MB.</div>
+          <div class="invoice-header">
+         
+            <div class="left-section">
+              <div class="upload-box">
+                <div class="upload-icon">⬆</div>
+                <p class="upload-text">Upload</p>
               </div>
+              <div class="upload-details">
+                <strong>Upload Logo</strong><br>
+                <span>240 x 240 pixels @ 72 DPI,<br>Maximum size of 1MB.</span>
+              </div>
+            </div>
+          
+           
+            <div class="right-section">
               <h1 class="invoice-title">TAX INVOICE</h1>
             </div>
+          </div>
+          
         
       
           <div class="company-details">
@@ -120,73 +126,122 @@
            
             <tr>
               <td class="description">
-                <textarea>Brochure Design</textarea>
-                <input type="text" placeholder="HSN/SAC" id="HSN/SAC" />
+                <textarea style="color: black;">Brochure Design</textarea>
+                <input type="text" placeholder="HSN/SAC" class="item-desc" />
               </td>
-              <td><input type="number" value="2" min="0"></td>
-              <td><input type="number" value="100.00" step="0.01" min="0"></td>
+              <td><input type="number" value="2" min="0" class="txt"></td>
+              <td><input type="number" value="100.00" step="0.01" min="0" class="txt"></td>
               <td>
-                <input type="number" value="6" min="0"><br />
+                <input type="number" value="6" min="0" class="txt"><br />
                 <div class="subtext">12.00</div>
               </td>
               <td>
-                <input type="number" value="6" min="0"><br />
+                <input type="number" value="6" min="0" class="txt"><br />
                 <div class="subtext">12.00</div>
               </td>
               <td>
-                <input type="number" value="0" min="0"><br />
+                <input type="number" value="0" min="0" class="txt"><br />
                 <div class="subtext">0.00</div>
               </td>
-              <td><input type="number" value="200.00" step="0.01" min="0"></td>
+              <td><input type="number" value="200.00" step="0.01" min="0" class="txt"></td>
+            </tr>
+          
+            <tr>
+              <td class="description">
+                <textarea>Enter item name/description </textarea>
+                <input type="text" placeholder="HSN/SAC" class="item-desc" />
+              </td>
+              <td><input type="number" value="1" min="0" class="txt"></td>
+              <td><input type="number" value="0.00" step="0.01" min="0" class="txt"></td>
+              <td>
+                <input type="number" value="0" min="0" class="txt"><br />
+                <div class="subtext">0.00</div>
+              </td>
+              <td>
+                <input type="number" value="0" min="0" class="txt"><br />
+                <div class="subtext">0.00</div>
+              </td>
+              <td>
+                <input type="number" value="0" min="0" class="txt"><br />
+                <div class="subtext">0.00</div>
+              </td>
+              <td><input type="number" value="0.00" step="0.01" min="0" class="txt"></td>
             </tr>
           
             <tr>
               <td class="description">
                 <textarea>Enter item name/description</textarea>
-                <input type="text" placeholder="HSN/SAC" id="HSN/SAC" />
+                <input type="text" placeholder="HSN/SAC" class="item-desc" />
               </td>
-              <td><input type="number" value="1" min="0"></td>
-              <td><input type="number" value="0.00" step="0.01" min="0"></td>
+              <td><input type="number" value="1" min="0" class="txt"></td>
+              <td><input type="number" value="0.00" step="0.01" min="0" class="txt"></td>
               <td>
-                <input type="number" value="0" min="0"><br />
+                <input type="number" value="0" min="0" class="txt"><br />
                 <div class="subtext">0.00</div>
               </td>
               <td>
-                <input type="number" value="0" min="0"><br />
+                <input type="number" value="0" min="0" class="txt"><br />
                 <div class="subtext">0.00</div>
               </td>
               <td>
-                <input type="number" value="0" min="0"><br />
+                <input type="number" value="0" min="0" class="txt"><br />
                 <div class="subtext">0.00</div>
               </td>
-              <td><input type="number" value="0.00" step="0.01" min="0"></td>
-            </tr>
-          
-            <tr>
-              <td class="description">
-                <textarea>Enter item name/description</textarea>
-                <input type="text" placeholder="HSN/SAC" id="HSN/SAC" />
-              </td>
-              <td><input type="number" value="1" min="0"></td>
-              <td><input type="number" value="0.00" step="0.01" min="0"></td>
-              <td>
-                <input type="number" value="0" min="0"><br />
-                <div class="subtext">0.00</div>
-              </td>
-              <td>
-                <input type="number" value="0" min="0"><br />
-                <div class="subtext">0.00</div>
-              </td>
-              <td>
-                <input type="number" value="0" min="0"><br />
-                <div class="subtext">0.00</div>
-              </td>
-              <td><input type="number" value="0.00" step="0.01" min="0"></td>
+              <td><input type="number" value="0.00" step="0.01" min="0" class="txt"></td>
             </tr>
 
           </table>
 
 
+          <div class="invoice-body">
+
+            <div class="line-item-row">
+              <div>
+                <button onclick="addItem()" class="add-item-btn">➕ Add Line Item</button>
+               
+              </div>
+        
+              <div class="totals-section">
+                <div class="line">
+                  <span>Sub Total</span>
+                  <span id="subtotal">0.00</span>
+                </div>
+                <div class="line">
+                  <span>SGST (6%)</span>
+                  <span id="sgst">0.00</span>
+                </div>
+                <div class="line">
+                  <span>CGST (6%)</span>
+                  <span id="cgst">0.00</span>
+                </div>
+                <div class="line total">
+                  <input type="text" value="TOTAL" class="total-label">
+                  <div class="total-value">
+                    <select id="currency">
+                      <option value="INR">INR - ₹</option>
+                      <option value="USD">USD - $</option>
+                    </select>
+                    <span id="total">0.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input class="notes-input" type="text" placeholder="Notes"  />
+            <textarea class="textarea" >  It was great doing business with you.</textarea>
+        
+            <div class="terms-section">
+              <input class="notes-input" type="text" placeholder="Terms & Conditions" />
+            <textarea class="textarea" >  Please make the payment by the due date.</textarea>
+            </div>
+        
+            <div class="footer">
+              <p>Powered by  <img src="asset/image/invoice.png" class="logo" /><br>
+              <p>100% Free Invoicing Solution</p>
+            </div>
+        
+          </div>
+        
+          
 
 
               

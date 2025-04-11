@@ -15,67 +15,55 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   }
 
-  .header {
+  .invoice-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+    align-items: left;
+    padding: 30px;
+    gap: 20px;
   }
-
-  .invoice-title {
-    font-size: 36px;
-    font-weight: 400;
-    margin: 0;
-  }
-
-  .logo-upload-section {
+  
+  .left-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    align-items:left;
   }
-
+  
   .upload-box {
-    border: 1px dashed #ccc;
-    border-radius: 10px;
-    padding: 20px;
     width: 100px;
     height: 100px;
-    text-align: center;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    cursor: pointer;
+    align-items: center;
   }
-
+  
   .upload-icon {
-    font-size: 24px;
+    font-size: 20px;
+    color: black;
   }
-
+  
   .upload-text {
-    color: rgb(69, 69, 214);
     font-weight: bold;
-    font-size: 16px;
+    color: #3b3bf3;
   }
-
-  .upload-input {
-    display: none;
-  }
-
-  .upload-info {
-    font-size: 12px;
-    color: gray;
+  
+  .upload-details {
+    margin-top: 10px;
     text-align: center;
+    color: #666;
+    font-size: 14px;
   }
-
-  .logo-preview {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    display: block;
-    margin: auto;
+  
+  .right-section .invoice-title {
+    font-size: 36px;
+    font-weight: 500;
+    color: #333;
+    text-align: right;
   }
+  
   
 
   .company-details {
@@ -83,6 +71,7 @@ body {
     flex-direction: column;
     gap: 16px;
     margin-top: 20px;
+    text-align: left;
   }
 
   .company-details label {
@@ -92,10 +81,12 @@ body {
   }
 
   .company-details input {
-    padding: 10px 90px;
+    padding: 8px 60px;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: white;
     border-radius: 6px;
+    text-align: left;
+    
   }
 
   .bill-section {
@@ -117,14 +108,14 @@ body {
     padding: 8px 60px;
     margin-bottom: 6px;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: white;
     border-radius: 5px;
   }
 
   .bill-right input {
     padding: 4px 6px;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: white;
     border-radius: 5px;
   }
 
@@ -146,7 +137,7 @@ body {
   }
 
   .invoice-table th, .invoice-table td {
-    border: black;
+    border:white;
     padding: 10px;
     vertical-align: top;
   }
@@ -160,6 +151,8 @@ body {
 
   .invoice-table td {
     text-align: center;
+    border: white;
+  
   }
 
   .invoice-table td.description {
@@ -168,11 +161,12 @@ body {
 
   textarea {
     width: 100%;
-    border: 1px solid #ccc;
+    border: white;
     resize: vertical;
     font-family: inherit;
     padding: 5px;
     box-sizing: border-box;
+    color: gray;
   }
 
   input[type="number"] {
@@ -180,19 +174,142 @@ body {
     padding: 4px;
     text-align: center;
   }
+.txt {
+  border:#fff
+  
+}
+
 
   .subtext {
-    font-size: 12px;
+    font-size: 11px;
     color: #555;
     padding-top: 5px;
+    border: white;
   }
 
   tr:not(:first-child) {
-    border-top: 1px solid #ccc;
+    border-top: white;
   }
 
-
-
-
-
+  invoice-body {
+    border: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: auto;
+  }
   
+  .add-item-btn {
+    color: #1a73e8;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .item-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .item-desc,
+  .item-qty,
+  .item-rate {
+    padding: 6px;
+    border: white;
+    border-radius: 4px;
+    color: #888;
+  }
+  
+  .item-desc {
+    flex: 2;
+  }
+  .item-qty,
+  .item-rate {
+    flex: 1;
+  }
+  .item-total {
+    width: 60px;
+    padding-top: 6px;
+    font-weight: bold;
+  }
+  
+  .line-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .totals-section {
+    text-align: right;
+    min-width: 250px;
+  }
+  
+  .line {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0;
+  }
+  
+  .total {
+    background-color: #f8f9fb;
+    padding: 10px;
+    border-radius: 6px;
+    align-items: center;
+  }
+  
+  .total-label {
+    border: white;
+    padding: 5px 8px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 100px;
+  }
+  
+  .total-value {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #currency {
+    padding: 4px;
+  }
+  
+  #total {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .notes-input {
+    width: 100%;
+    padding: 10px ;
+    border: white;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    box-sizing:border-box;
+  }
+  
+  .logo {
+    width: 100px;     
+    height: auto;      
+    border-radius: 8px; 
+    align-items: baseline;
+  }
+  
+   
+    
+  
+  
+  .footer {
+    margin-top: 30px;
+    text-align: right;
+    color: gray;
+
+  }
