@@ -9,10 +9,11 @@ body {
   .main-container {
     max-width: 800px;
     margin: auto;
-    border: 1px solid #ddd;
+    border: 1px solid #4c6ed5;
     border-radius: 10px;
     padding: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  
   }
 
   .invoice-header {
@@ -30,9 +31,9 @@ body {
   }
   
   .upload-box {
-    width: 100px;
+    width: 145px;
     height: 100px;
-    border: 1px dashed #ccc;
+    border: 1px solid rgb(91,142,186);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -41,20 +42,23 @@ body {
   }
   
   .upload-icon {
-    font-size: 20px;
+    font-size: 30px;
     color: black;
   }
   
   .upload-text {
-    font-weight: bold;
-    color: #3b3bf3;
+    font-weight:bolder;
+    color:rgb(91, 142, 186);
   }
   
   .upload-details {
-    margin-top: 10px;
-    text-align: center;
+    margin-top: 7px;
+    align-items:right;
+    gap:20;
     color: #666;
     font-size: 14px;
+    padding: 0px 160px;
+    margin-top: -70px;
   }
   
   .right-section .invoice-title {
@@ -62,6 +66,7 @@ body {
     font-weight: 500;
     color: #333;
     text-align: right;
+
   }
   
   
@@ -75,14 +80,14 @@ body {
   }
 
   .company-details label {
-    font-size: 14px;
+    font-size: 15px;
     
     
   }
 
   .company-details input {
-    padding: 8px 60px;
-    font-size: 14px;
+    padding: 8px 55px;
+    font-size: 15px;
     border: white;
     border-radius: 6px;
     text-align: left;
@@ -105,16 +110,16 @@ body {
 
   .bill-left input {
     width: 100%;
-    padding: 8px 60px;
+    padding: 8px 55px;
     margin-bottom: 6px;
-    font-size: 14px;
+    font-size: 15px;
     border: white;
     border-radius: 5px;
   }
 
   .bill-right input {
-    padding: 4px 6px;
-    font-size: 14px;
+    padding: 8px 6px;
+    font-size: 15px;
     border: white;
     border-radius: 5px;
   }
