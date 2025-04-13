@@ -1,127 +1,105 @@
 
-function updateInvoice() {
-    const rows = document.querySelectorAll('.invoice-table tr:not(:first-child)');
-    let subtotal = 0;
-    let totalSGST = 0;
-    let totalCGST = 0;
-  
-    rows.forEach(row => {
-      const inputs = row.querySelectorAll('input');
-      const qty = parseFloat(inputs[1]?.value) || 0;
-      const rate = parseFloat(inputs[2]?.value) || 0;
-      const sgstRate = parseFloat(inputs[3]?.value) || 0;
-      const cgstRate = parseFloat(inputs[4]?.value) || 0;
-  
-      const amount = qty * rate;
-      const sgstAmount = (amount * sgstRate) / 100;
-      const cgstAmount = (amount * cgstRate) / 100;
-      const total = amount + sgstAmount + cgstAmount;
-  
-     
-      const sgstSubtext = row.querySelectorAll('.subtext')[0];
-      const cgstSubtext = row.querySelectorAll('.subtext')[1];
-      if (sgstSubtext) sgstSubtext.textContent = sgstAmount.toFixed(2);
-      if (cgstSubtext) cgstSubtext.textContent = cgstAmount.toFixed(2);
-  
-      
-      const amountInput = inputs[6];
-      if (amountInput) amountInput.value = total.toFixed(2);
-  
-      subtotal += amount;
-      totalSGST += sgstAmount;
-      totalCGST += cgstAmount;
-    });
-  
-   
-    document.getElementById('subtotal').textContent = subtotal.toFixed(2);
-    document.getElementById('sgst').textContent = totalSGST.toFixed(2);
-    document.getElementById('cgst').textContent = totalCGST.toFixed(2);
-  
-    const grandTotal = subtotal + totalSGST + totalCGST;
-    document.getElementById('total').textContent = grandTotal.toFixed(2);
+function fixPrefix(input) {
+  const prefix = input.dataset.prefix;
+  if (!input.value.startsWith(prefix + ': ')) {
+    input.value = prefix + ': ';
   }
-  
- 
-  function addItem() {
-    const table = document.querySelector('.invoice-table');
-    const rows = table.querySelectorAll('tr');
-    const lastRow = rows[rows.length - 1];
-    const newRow = lastRow.cloneNode(true);
-  
-   
-    const inputs = newRow.querySelectorAll('input');
-    const textarea = newRow.querySelector('textarea');
-    const subtexts = newRow.querySelectorAll('.subtext');
-  
-    if (textarea) textarea.value = '';
-    inputs.forEach((input, index) => {
-      if (index === 1) input.value = 1; 
-      else if (index === 2 || index === 6) input.value = "0.00"; 
-      else input.value = 0;
-    });
-    subtexts.forEach(st => (st.textContent = "0.00"));
-  
-    table.appendChild(newRow);
-    addListenersToRow(newRow);
-    updateInvoice();
-  }
-  
+}
 
-  function fixPrefix(input) {
-    const prefix = input.defaultValue?.split(':')[0] || input.defaultValue;
-    input.value = prefix + ": ";
-  }
-  
 
-  function addListenersToRow(row) {
-    const inputs = row.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-      input.addEventListener('input', updateInvoice);
-    });
-  }
-  
+function addItem() {
+  const table = document.querySelector('.invoice-table');
+  const newRow = table.insertRow(-1);
 
-  function initListeners() {
-    document.querySelectorAll('.invoice-table tr:not(:first-child)').forEach(row => {
-      addListenersToRow(row);
-    });
-  
+  newRow.innerHTML = `
+    <td class="description">
+      <textarea placeholder="Enter item name/description"></textarea>
+      <input type="text" placeholder="HSN/SAC" class="item-desc" />
+    </td>
+    <td><input type="number" value="1" min="0" class="txt qty"></td>
+    <td><input type="number" value="0.00" step="0.01" min="0" class="txt rate"></td>
+    <td>
+      <input type="number" value="0" min="0" class="txt sgst-rate"><br />
+      <div class="subtext">0.00</div>
+    </td>
+    <td>
+      <input type="number" value="0" min="0" class="txt cgst-rate"><br />
+      <div class="subtext">0.00</div>
+    </td>
+    <td>
+      <input type="number" value="0" min="0" class="txt cess-rate"><br />
+      <div class="subtext">0.00</div>
+    </td>
+    <td><input type="number" value="0.00" step="0.01" min="0" class="txt amount" readonly></td>
+  `;
 
-    document.querySelectorAll('input[oninput="fixPrefix(this)"]').forEach(input => {
-      input.addEventListener('input', function () {
-        fixPrefix(this);
-      });
-    });
-  
-  
-    document.querySelector('.add-item-btn')?.addEventListener('click', addItem);
-  }
-  
+  attachInputListeners();
+  calculateTotal();
+}
 
-  window.addEventListener('load', () => {
-    initListeners();
-    updateInvoice();
+function calculateTotal() {
+  const rows = document.querySelectorAll('.invoice-table tr:not(:first-child)');
+  let subtotal = 0;
+  let totalSGST = 0;
+  let totalCGST = 0;
+  let totalCess = 0;
+
+  rows.forEach(row => {
+    const qty = parseFloat(row.querySelector('.qty')?.value || 0);
+    const rate = parseFloat(row.querySelector('.rate')?.value || 0);
+    const sgstRate = parseFloat(row.querySelector('.sgst-rate')?.value || 0);
+    const cgstRate = parseFloat(row.querySelector('.cgst-rate')?.value || 0);
+    const cessRate = parseFloat(row.querySelector('.cess-rate')?.value || 0);
+
+    const baseAmount = qty * rate;
+    const sgst = baseAmount * (sgstRate / 100);
+    const cgst = baseAmount * (cgstRate / 100);
+    const cess = baseAmount * (cessRate / 100);
+    const totalAmount = baseAmount + sgst + cgst + cess;
+
+    row.querySelector('.amount').value = totalAmount.toFixed(2);
+    row.querySelectorAll('.subtext')[0].innerText = sgst.toFixed(2);
+    row.querySelectorAll('.subtext')[1].innerText = cgst.toFixed(2);
+    row.querySelectorAll('.subtext')[2].innerText = cess.toFixed(2);
+
+    subtotal += baseAmount;
+    totalSGST += sgst;
+    totalCGST += cgst;
+    totalCess += cess;
   });
 
-document.querySelector('.upload-box')?.addEventListener('click', () => {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'image/*';
-    
-    input.onchange = (event) => {
-      const file = event.target.files[0];
-      if (file && file.size <= 1024 * 1024) { 
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          const logoBox = document.querySelector('.upload-box');
-          logoBox.innerHTML = `<img src="${e.target.result}" class="logo-preview" alt="Logo" />`;
-        };
-        reader.readAsDataURL(file);
-      } else {
-        alert("Please upload an image less than 1MB in size.");
-      }
-    };
-  
-    input.click();
+  const grandTotal = subtotal + totalSGST + totalCGST + totalCess;
+
+  document.getElementById('subtotal').innerText = subtotal.toFixed(2);
+  document.getElementById('sgst').innerText = totalSGST.toFixed(2);
+  document.getElementById('cgst').innerText = totalCGST.toFixed(2);
+  document.getElementById('total').innerText = grandTotal.toFixed(2);
+}
+
+
+function attachInputListeners() {
+  const inputs = document.querySelectorAll('.invoice-table input');
+  inputs.forEach(input => {
+    input.removeEventListener('input', calculateTotal);
+    input.addEventListener('input', calculateTotal);
   });
-    
+
+
+  const labelInputs = document.querySelectorAll('.label-input');
+  labelInputs.forEach(input => {
+    input.dataset.prefix = input.value.split(':')[0];
+    input.removeEventListener('input', () => fixPrefix(input));
+    input.addEventListener('input', () => fixPrefix(input));
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  attachInputListeners();
+  calculateTotal();
+
+
+  const addItemBtn = document.getElementById('addItemBtn');
+  if (addItemBtn) {
+    addItemBtn.addEventListener('click', addItem);
+  }
+});
