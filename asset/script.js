@@ -1,3 +1,57 @@
+function validateInputFields() {
+  const companyName = document.querySelector('input[placeholder="Your Company"]').value;
+  const companyNameError = document.getElementById('companyNameError');
+  const clientCompany = document.querySelector('input[placeholder="Client\'s Company"]').value;
+  const clientCompanyError = document.getElementById('clientCompanyError');
+
+
+  if (!companyName) {
+    companyNameError.textContent = "Company name is required.";
+  } else {
+    companyNameError.textContent = "";
+  }
+
+
+  if (!clientCompany) {
+    clientCompanyError.textContent = "Client company name is required.";
+  } else {
+    clientCompanyError.textContent = "";
+  }
+
+ 
+  if (companyName && clientCompany) {
+    calculateTotal(); 
+  }
+}
+
+function triggerFileUpload() {
+  const fileInput = document.getElementById('fileUpload');
+  fileInput.click();  
+}
+
+
+function handleFileUpload(event) {
+  const file = event.target.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+     
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.alt = 'Uploaded Logo';
+      img.style.width = '100px'; 
+
+      
+      const uploadBox = document.querySelector('.upload-box');
+      uploadBox.innerHTML = ''; 
+      uploadBox.appendChild(img); 
+    };
+
+    reader.readAsDataURL(file); 
+  }
+}
+
 
 function fixPrefix(input) {
   const prefix = input.dataset.prefix;

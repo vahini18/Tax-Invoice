@@ -15,12 +15,14 @@
          
             <div class="left-section">
               <div class="upload-box">
-                <div class="upload-icon">⬆️</div>
+                <div class="upload-icon" onclick="triggerFileUpload()">⬆️</div>
                 <p class="upload-text">Upload</p>
+                <input type="file" id="fileUpload" accept="image/*" onchange="handleFileUpload(event)" style="display:none;" />
               </div>
               <div class="upload-details">
                 <strong>Upload Logo</strong><br><br>
                 <span>240 x 240 pixels @ 72 DPI,<br>Maximum size of 1MB.</span>
+                
               </div>
             </div>
           
